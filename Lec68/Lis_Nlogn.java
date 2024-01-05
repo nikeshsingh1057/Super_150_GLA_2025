@@ -9,15 +9,18 @@ public class Lis_Nlogn {
 
 	}
 
-	private static int lis(int[] arr) {
-		// TODO Auto-generated method stub
+	 private static int lis(int[] arr) {
+	
 		int[] dp = new int[arr.length];
 		dp[0] = arr[0];
+       
 		int len = 1;
 		for (int i = 1; i < dp.length; i++) {
+            
 			if (dp[len - 1] < arr[i]) {
 				dp[len] = arr[i];
 				len++;
+                
 			} else {
 				int idx = BinarySearch(dp, 0, len - 1, arr[i]);
 				dp[idx] = arr[i];
@@ -29,7 +32,7 @@ public class Lis_Nlogn {
 	}
 
 	private static int BinarySearch(int[] dp, int si, int ei, int item) {
-		// TODO Auto-generated method stub
+		
 		int idx = 0;
 		while (si <= ei) {
 			int mid = (si + ei) / 2;
